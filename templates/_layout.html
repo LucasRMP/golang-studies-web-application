@@ -1,0 +1,13 @@
+{{define "_layout"}}
+  {{ template "_html" . }}
+    {{ template "_head" . }}
+    
+    {{ template "_main" . }}
+{{end}}
+  
+{{define "_end_layout"}}
+  {{ template "_end_main" . }}
+
+  {{ template "_end_html" . }}
+
+{{end}}

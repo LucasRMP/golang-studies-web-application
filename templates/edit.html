@@ -1,0 +1,68 @@
+{{define "Edit"}}
+{{ template "_layout" . }}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-5">Editing Product #{{.Id}}</h1>
+    <p class="lead">Edit details</p>
+  </div>
+</div>
+<form method="POST" action="update?id={{.Id}}">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" type="text" name="name" class="form-control" value="{{.Name}}" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input
+          id="description"
+          type="text"
+          name="description"
+          class="form-control"
+          value="{{.Description}}"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input
+          id="price"
+          type="number"
+          name="price"
+          class="form-control"
+          step="0.01"
+          value="{{.Price}}"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input
+          id="quantity"
+          type="number"
+          name="quantity"
+          class="form-control"
+          value="{{.Quantity}}"
+        />
+      </div>
+    </div>
+  </div>
+  <button type="submit" value="save" class="btn btn-success">Update</button>
+  <a class="btn btn-info" href="/">Back</a>
+</form>
+
+{{ template "_end_layout" . }}
+{{end}}

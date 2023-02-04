@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: postgres:latest
+    restart: always
+    tty: true
+    volumes:
+      - .pgdata:/var/lib/postgresql/data
+    user: 1000:1000
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=store
+    ports:
+      - "5432:5432"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@user.com
+      - PGADMIN_DEFAULT_PASSWORD=123456
+    ports:
+      - "9000:80"
+    depends_on:
+      - db
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"

@@ -1,0 +1,63 @@
+{{define "New"}}
+{{ template "_layout" . }}
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-5">New Product</h1>
+      <p class="lead">Insert details</p>
+    </div>
+  </div>
+  <form method="POST" action="insert">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="name" class="form-control" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input
+            id="description"
+            type="text"
+            name="description"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input
+            id="price"
+            type="number"
+            name="price"
+            class="form-control"
+            step="0.01"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input
+            id="quantity"
+            type="number"
+            name="quantity"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <button type="submit" value="save" class="btn btn-success">Save</button>
+    <a class="btn btn-info" href="/">Back</a>
+  </form>
+{{ template "_end_layout" . }}
+{{end}}
